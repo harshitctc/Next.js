@@ -1,0 +1,190 @@
+business-tools-agency/
+│
+├── app/
+│   ├── layout.js
+│   ├── page.js
+│   ├── about/page.js
+│   ├── services/page.js
+│   ├── contact/page.js
+│   └── globals.css
+│
+├── components/
+│   ├── Navbar.js
+│   ├── Footer.js
+│   ├── Hero.js
+│   ├── ServiceCard.js
+│   └── CTA.js
+│
+├── public/
+│   └── images/
+│
+├── package.json
+├── tailwind.config.js
+├── postcss.config.js
+└── README.md
+{
+  "name": "business-tools-agency",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "14.2.3",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8",
+    "autoprefixer": "^10"
+  }
+}
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}"
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-white text-gray-900;
+}
+import Link from "next/link";
+
+export default function Navbar() {
+  return (
+    <nav className="flex justify-between items-center p-6 shadow">
+      <h1 className="text-xl font-bold">BusinessTools</h1>
+
+      <div className="space-x-6">
+        <Link href="/">Home</Link>
+        <Link href="/about">About</Link>
+        <Link href="/services">Services</Link>
+        <Link href="/contact">Contact</Link>
+      </div>
+    </nav>
+  );
+}
+export default function Hero() {
+  return (
+    <section className="text-center py-24 bg-gray-100">
+      <h1 className="text-5xl font-bold mb-6">
+        Grow Your Business With Proven Marketing Strategies
+      </h1>
+      <p className="text-lg mb-8">
+        SEO, Content Marketing & Social Media Solutions That Deliver Results.
+      </p>
+      <button className="bg-blue-600 text-white px-6 py-3 rounded-lg">
+        Get Started
+      </button>
+    </section>
+  );
+}
+export default function ServiceCard({ title, description }) {
+  return (
+    <div className="p-8 border rounded-xl shadow hover:shadow-lg transition">
+      <h3 className="text-xl font-semibold mb-4">{title}</h3>
+      <p>{description}</p>
+    </div>
+  );
+}
+export default function CTA() {
+  return (
+    <section className="py-20 text-center bg-blue-600 text-white">
+      <h2 className="text-3xl font-bold mb-6">
+        Ready to Scale Your Business?
+      </h2>
+      <button className="bg-white text-blue-600 px-6 py-3 rounded-lg">
+        Book a Free Consultation
+      </button>
+    </section>
+  );
+}
+export default function Footer() {
+  return (
+    <footer className="text-center p-8 bg-gray-900 text-white">
+      <p>© {new Date().getFullYear()} BusinessTools Agency. All rights reserved.</p>
+    </footer>
+  );
+}
+export default function Services() {
+  return (
+    <section className="py-20 px-6">
+      <h1 className="text-4xl font-bold text-center mb-12">Our Services</h1>
+
+      <div className="space-y-10 max-w-4xl mx-auto">
+        <div>
+          <h2 className="text-2xl font-semibold">SEO Optimization</h2>
+          <p>Technical SEO, On-page SEO, Link building & audits.</p>
+        </div>
+
+        <div>
+          <h2 className="text-2xl font-semibold">Content Marketing</h2>
+          <p>Blog writing, website content, landing pages & copywriting.</p>
+        </div>
+
+        <div>
+          <h2 className="text-2xl font-semibold">Social Media Management</h2>
+          <p>Content creation, scheduling, analytics & growth strategy.</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+export default function Contact() {
+  return (
+    <section className="py-20 px-6 text-center">
+      <h1 className="text-4xl font-bold mb-8">Contact Us</h1>
+
+      <form className="max-w-xl mx-auto space-y-6">
+        <input 
+          type="text"
+          placeholder="Your Name"
+          className="w-full border p-3 rounded"
+        />
+        <input 
+          type="email"
+          placeholder="Your Email"
+          className="w-full border p-3 rounded"
+        />
+        <textarea 
+          placeholder="Your Message"
+          className="w-full border p-3 rounded h-32"
+        />
+        <button className="bg-blue-600 text-white px-6 py-3 rounded-lg">
+          Send Message
+        </button>
+      </form>
+    </section>
+  );
+}
+
+---
+
+# 🚀 How To Publish To GitHub
+
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/yourusername/business-tools-agency.git
+git push -u origin main
